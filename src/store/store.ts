@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import jobListSlice from "./reducers/jobListSlice";
 
 export const store = configureStore({

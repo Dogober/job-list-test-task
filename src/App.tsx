@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchJobList())
   }, [])
-
+  console.log(jobs)
   return (
         <div className="flex flex-col items-center gap-2 px-5 py-5">
           {jobs.map(job =>
