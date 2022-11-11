@@ -15,7 +15,7 @@ export const fetchJobList = () => async (dispatch: AppDispatch) => {
         })
         dispatch(jobListSlice.actions.jobListFetchingSuccess(response.data))
     } catch (error) {
-        const er = error as AxiosError
-        dispatch(jobListSlice.actions.jobListFetchingError(er.message))
+        const e = error as AxiosError
+        dispatch(jobListSlice.actions.jobListFetchingError(e.message))
     }
 }

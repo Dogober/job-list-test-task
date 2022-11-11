@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import JobItem from "./components/JobItem";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
 import { fetchJobList } from "./store/reducers/ActionCreators";
 
@@ -12,20 +13,11 @@ function App() {
   }, [])
 
   return (
-    <div className="">
-      {jobs.map(job =>
-        <div 
-          key={job.id}
-        >
-          <p className="font-semibold text-xl">
-            name: {job.name}
-          </p>
-          <address>
-            {job.address}
-          </address>
-        </div> 
-      )}
-    </div>
+        <div className="flex flex-col items-center gap-2 px-5 py-5">
+          {jobs.map(job =>
+            <JobItem key={job.id} item={job}/>
+          )}
+        </div>
   );
 }
 
