@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Job } from '../models/Job';
 
 interface JobItemProps {
@@ -9,6 +10,7 @@ interface JobItemProps {
 const JobItem: FC<JobItemProps> = ({item}) => {
 
     const updatedAt = moment(item.updatedAt, "YYYY-MM-DDThh:mm:ss").fromNow()
+    const route = useNavigate()
     const stars = () => {
         const ar = []
         const random = Math.floor(Math.random() * 5)-1
@@ -34,10 +36,12 @@ const JobItem: FC<JobItemProps> = ({item}) => {
     }
 
     return (
-        <div className="max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex flex-row justify-between gap-8">
+        <div
+            onClick={() => route(`/home/${item.id}`)}
+            className="max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex flex-row justify-between gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer">
             <div
                 style={{
-                    background: `url(${item.pictures[0]})`,
+                    backgroundImage: `url(${item.pictures[0] + `?random=${Math.floor(Math.random() * 1000)}`})`,
                     minWidth: '90px',
                     maxHeight: '90px',
                     borderRadius: '45px',
