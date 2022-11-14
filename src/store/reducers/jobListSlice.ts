@@ -42,12 +42,16 @@ export const jobListSlice = createSlice({
                 while (element.rating.length <= randomizer(5)-1) {
                     element.rating.push('')
                 }
-                const responsopilitiesIndex = element.description.indexOf('Responsopilities')
+                const responsopilitiesIndex = element.description.indexOf('Responsopilities:')
                 const benefitsIndex = element.description.indexOf('Compensation & Benefits:')
+                let benefits = element.description
+                    .substring(benefitsIndex+'Compensation & Benefits:'.length, element.description.length-1)
                 element.convertedDescription = {
                     title: element.description.substring(0, responsopilitiesIndex),
-                    responsopilities: element.description.substring(responsopilitiesIndex, benefitsIndex),
-                    benefits: element.description.substring(benefitsIndex, element.description.length-1)
+                    responsopilities: element.description.substring(
+                        responsopilitiesIndex+'Responsopilities:'.length, benefitsIndex
+                        ),
+                    benefits: benefits.split('.')
                 }
             }
         },

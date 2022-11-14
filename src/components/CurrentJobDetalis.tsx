@@ -50,9 +50,29 @@ const CurrentJobDetalis: FC = () => {
                 <p className="font-normal text-lg text-[#38415D]/[.36] my-1">
                     Posted {currentJob?.updatedAt}
                 </p>
-                <div>
-                    {currentJob?.description}
-                </div>
+                <main className="font-normal text-lg">
+                    <div>
+                        <p>{currentJob?.convertedDescription.title}</p>
+                    </div>
+                    <div>
+                        <p className="mt-8 mb-3 font-bold text-xl">Responsopilities</p>
+                        <p>{currentJob?.convertedDescription.responsopilities}</p>
+                    </div>
+                    <div>
+                        <p className="mt-8 mb-3 font-bold text-xl">Compensation & Benefits:</p>
+                        <ul>
+                            {currentJob?.convertedDescription.benefits.map((benefit, i) =>
+                            <li
+                                className=" list-square list-outside last:list-none"
+                                key={i}
+                            >
+                                {benefit}
+                            </li>
+                            )}
+                        </ul>
+                        
+                    </div>
+                </main>
             </main>
         </div>
     );

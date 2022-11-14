@@ -25,5 +25,5 @@ export interface Job {
   export interface ConvertedDescription {
     title: string
     responsopilities: string
-    benefits: string
+    benefits: string[]
   }
