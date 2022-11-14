@@ -13,6 +13,7 @@ export interface Job {
     salary: string
     title: string
     updatedAt: string
+    rating?: string[]
   }
   
   export interface Location {
