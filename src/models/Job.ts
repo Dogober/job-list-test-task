@@ -13,10 +13,17 @@ export interface Job {
     salary: string
     title: string
     updatedAt: string
-    rating?: string[]
+    rating: string[]
+    convertedDescription: ConvertedDescription
   }
   
   export interface Location {
     lat: number
     long: number
+  }
+
+  export interface ConvertedDescription {
+    title: string
+    responsopilities: string
+    benefits: string
   }

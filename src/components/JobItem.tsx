@@ -45,7 +45,7 @@ const JobItem: FC<JobItemProps> = ({item}) => {
                 </div>
             </div>
             <div className="mt-auto mb-auto flex">
-                {item?.rating?.map((_, i) => <StarIcon key={i}/>)}
+                {item.rating.map((_, i) => <StarIcon key={i}/>)}
             </div>
             <div className="flex flex-col max-w-[138px] w-full">
                 <div className=" flex-auto ml-auto">

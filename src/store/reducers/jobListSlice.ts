@@ -4,9 +4,9 @@ import { Job } from "../../models/Job";
 import { randomizer } from "../../utilities/randomizer";
 
 interface JobState {
-    jobs: Job[];
-    currentJob: Job | null;
-    isLoading: boolean;
+    jobs: Job[]
+    currentJob: Job | null
+    isLoading: boolean
     error: string
 }
 
@@ -41,7 +41,14 @@ export const jobListSlice = createSlice({
                 element.rating = []
                 while (element.rating.length <= randomizer(5)-1) {
                     element.rating.push('')
-                }  
+                }
+                const responsopilitiesIndex = element.description.indexOf('Responsopilities')
+                const benefitsIndex = element.description.indexOf('Compensation & Benefits:')
+                element.convertedDescription = {
+                    title: element.description.substring(0, responsopilitiesIndex),
+                    responsopilities: element.description.substring(responsopilitiesIndex, benefitsIndex),
+                    benefits: element.description.substring(benefitsIndex, element.description.length-1)
+                }
             }
         },
         jobListFetchingError(state, action: PayloadAction<string>) {
