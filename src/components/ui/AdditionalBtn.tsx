@@ -13,7 +13,7 @@ const AdditionalBtn: FC<AdditionalBtnProps> = ({bgColor, borderColor, textColor,
         {infoAr?.map(el =>
             <button
                 key={el}
-                className={`py-4 bg-${bgColor} rounded-lg border-${borderColor} border max-w-[222px] w-full mr-2 font-bold text-base text-${textColor} mt-2 cursor-default`}
+                className={`${textColor} ${borderColor} ${bgColor} py-4 rounded-lg border max-w-[222px] w-full mr-2 font-bold text-base mt-2 cursor-default`}
             >
                 {el}
             </button>

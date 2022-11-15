@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/utilities/.ts"  ]
+, "src/utilities/.ts", "public/Circle.tsx", "public/Circle.tsx"  ]
 }

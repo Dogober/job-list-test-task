@@ -12,6 +12,7 @@ const JobList: FC = () => {
         dispatch(fetchJobList())
       }
     }, [])
+    
     return (
         <div className="flex flex-col items-center gap-2 px-[5%] py-5 bg-[#F5F5F5] min-h-screen">
           {jobs.map(job =>

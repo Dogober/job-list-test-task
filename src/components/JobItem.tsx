@@ -12,13 +12,15 @@ interface JobItemProps {
 const JobItem: FC<JobItemProps> = ({item}) => {
 
     const route = useNavigate()
-
+    
     return (
         <div
             onClick={() => route(`/home/${item.id}`)}
             className="max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer"
         >
-            <div className={` bg-[url(${item.pictures[0]})] min-w-[90px] max-h-[90px] rounded-full bg-cover`}>
+            <div
+                style={{backgroundImage: `url(${item.pictures[0]})`}}
+                className="min-w-[90px] max-h-[90px] rounded-full bg-cover">
             </div>
             <div className="flex flex-col gap-2 max-w-[712px] w-full mr-auto">
                 <header className="text-xl font-bold tracking-[-0.625px] text-[#67708b]">

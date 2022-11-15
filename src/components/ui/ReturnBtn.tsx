@@ -9,7 +9,7 @@ const ReturnBtn: FC = () => {
     return (
         <button
             onClick={() => route(-1)}
-            className=" mt-24 font-semibold text-xs px-6 py-4 bg-[#384564]/20 rounded-lg -ml-24">
+            className=" mt-24 font-semibold text-xs px-6 py-4 bg-[#384564]/20 rounded-lg -ml-[5%]">
             <div className="flex gap-5">
                 <ArrowIcon/> RETURN TO JOB BOARD
             </div>
