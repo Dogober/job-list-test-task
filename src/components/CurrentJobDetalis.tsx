@@ -2,21 +2,28 @@ import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchCurrentJob } from '../store/reducers/ActionCreators';
-import NoteIcon from './NoteIcon';
-import ShareIcon from './ShareIcon';
+import ApplyBtn from './ui/ApplyBtn';
+import NoteIcon from './svg/NoteIcon';
+import ShareIcon from './svg/ShareIcon';
+import ReturnBtn from './ui/ReturnBtn';
+import AttachedImages from './AttachedImages';
+import AdditionalBtn from './ui/AdditionalBtn';
+import Description from './Description';
 
 const CurrentJobDetalis: FC = () => {
     
     const params = useParams()
     const {currentJob} = useAppSelector(state => state.jobListSlice)
     const dispatch = useAppDispatch()
+    
+    window.scrollTo(0, 0)
 
     useEffect(() => {
         dispatch(fetchCurrentJob(params.id))
     }, [])
 
     return (
-        <div className="flex flex-col max-w-[720px] w-full text-[#3A4562] font-sans ">
+        <div className="flex flex-col max-w-[720px] text-[#3A4562] font-sans ">
             <header className="flex gap-8 border-b pb-2">
                 <div className="font-bold text-3xl flex-auto">Job Detalis</div>
                 <div className="flex gap-4 items-center">
@@ -33,9 +40,7 @@ const CurrentJobDetalis: FC = () => {
                 </div>
             </header>
             <main>
-                <button className=" mt-10 mb-8 py-[18px] px-[30px] text-xs font-semibold bg-[#384564] rounded-lg text-white">
-                    APPLY NOW
-                </button>
+                <ApplyBtn/>
                 <header className="flex justify-between font-bold gap-5">
                     <div className="max-w-[500px] text-2xl tracking-[-0.75]">
                         {currentJob?.title}
@@ -50,30 +55,28 @@ const CurrentJobDetalis: FC = () => {
                 <p className="font-normal text-lg text-[#38415D]/[.36] my-1">
                     Posted {currentJob?.updatedAt}
                 </p>
-                <main className="font-normal text-lg">
-                    <div>
-                        <p>{currentJob?.convertedDescription.title}</p>
-                    </div>
-                    <div>
-                        <p className="mt-8 mb-3 font-bold text-xl">Responsopilities</p>
-                        <p>{currentJob?.convertedDescription.responsopilities}</p>
-                    </div>
-                    <div>
-                        <p className="mt-8 mb-3 font-bold text-xl">Compensation & Benefits:</p>
-                        <ul>
-                            {currentJob?.convertedDescription.benefits.map((benefit, i) =>
-                            <li
-                                className=" list-square list-outside last:list-none"
-                                key={i}
-                            >
-                                {benefit}
-                            </li>
-                            )}
-                        </ul>
-                        
-                    </div>
-                </main>
+                <Description/>
             </main>
+            <footer className="">
+                <div className="border-b pb-2 font-bold text-3xl mt-14">
+                    Additional info
+                </div>
+                <p className="font-normal text-lg mt-5 mb-1">Employment type</p>
+                <AdditionalBtn 
+                    bgColor='[#A1B1DB]/[.32]' 
+                    borderColor='[#55699E]/[.3]' 
+                    infoAr={currentJob?.employment_type}
+                />
+                <p className="font-normal text-lg mt-5 mb-1">Benefits</p>
+                <AdditionalBtn 
+                    bgColor='[#FFCF00]/[.15]' 
+                    borderColor='[#FFCF00]' 
+                    textColor='[#988B49]' 
+                    infoAr={currentJob?.benefits}
+                />
+                <AttachedImages/>
+                <ReturnBtn/>
+            </footer>
         </div>
     );
 };

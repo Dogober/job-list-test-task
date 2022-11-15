@@ -15,7 +15,7 @@ const JobDetalis: FC = () => {
   
     return (
         jobs.length !== 0 
-        ?<div className="gap-2 px-[15%] py-14">
+        ?<div className="gap-2 py-14 flex justify-center pb-28 px-7">
             <CurrentJobDetalis/>
         </div>
         :<></>
