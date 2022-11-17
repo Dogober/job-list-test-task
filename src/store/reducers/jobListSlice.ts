@@ -5,16 +5,22 @@ import { randomizer } from "../../utilities/randomizer";
 
 interface JobState {
     jobs: Job[]
+    displayedJobs: Job[]
     currentJob: Job | null
     isLoading: boolean
     error: string
+    currentPage: number
+    limit: number
 }
 
 const initialState: JobState = {
     jobs: [],
+    displayedJobs: [],
     currentJob: null,
     isLoading: false,
-    error: ''
+    error: '',
+    currentPage: 1,
+    limit: 2
 }
 
 export const jobListSlice = createSlice({
@@ -29,7 +35,11 @@ export const jobListSlice = createSlice({
             state.isLoading = false
             state.error = ''
             state.jobs = action.payload
-        
+            state.displayedJobs = state.jobs.slice(
+                (state.currentPage-1)*state.limit, state.limit*state.currentPage > state.jobs.length 
+                    ?state.jobs.length
+                    :state.limit*state.currentPage
+                )
             for (let i = 0; i < state.jobs.length; i++) {
                 const element = state.jobs[i]
                 element.updatedAt = moment(element.updatedAt, "YYYY-MM-DDThh:mm:ss").fromNow()
@@ -63,7 +73,15 @@ export const jobListSlice = createSlice({
             state.error = action.payload
         },
         currentJobFetching(state, action: PayloadAction<string | undefined>){
-            state.currentJob = state.jobs.filter(job => job.id === action.payload)[0]
+            state.currentJob = state.displayedJobs.filter(job => job.id === action.payload)[0]
+        },
+        changingPage(state, action: PayloadAction<number>){
+            state.currentPage = action.payload
+            state.displayedJobs = state.jobs.slice(
+                (state.currentPage-1)*state.limit, state.limit*state.currentPage > state.jobs.length 
+                    ?state.jobs.length
+                    :state.limit*state.currentPage
+            )
         }
     }
 })

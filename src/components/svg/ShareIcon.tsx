@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 const ShareIcon: FC = () => {
+
     return (
-        <svg 
+        <svg
             width="19" 
             height="20" 
             viewBox="0 0 19 20" 

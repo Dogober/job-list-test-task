@@ -4,21 +4,18 @@ import CurrentJobDetalis from '../components/CurrentJobDetalis';
 import { useAppSelector } from '../hooks/redux';
 
 const JobDetalis: FC = () => {
+
     const {jobs} = useAppSelector(state => state.jobListSlice)
     const route = useNavigate()
     
     useEffect(() => {
-        if (jobs.length === 0) {
-            route('/home')
-        }
-      }, [])
+        if (jobs.length === 0) route('/home')
+    }, [])
   
     return (
-        jobs.length !== 0 
-        ?<div className="py-14 flex justify-center pb-28 px-[5%]">
+        <div className="py-14 flex justify-center pb-28 px-[5%]">
             <CurrentJobDetalis/>
         </div>
-        :<></>
     );
 };
 

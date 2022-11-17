@@ -16,7 +16,7 @@ const JobItem: FC<JobItemProps> = ({item}) => {
     return (
         <div
             onClick={() => route(`/home/${item.id}`)}
-            className="max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer"
+            className="select-none max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer"
         >
             <div
                 style={{backgroundImage: `url(${item.pictures[0]})`}}

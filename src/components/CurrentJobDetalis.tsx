@@ -35,7 +35,12 @@ const CurrentJobDetalis: FC = () => {
                     </div>
                     <div className="flex gap-4 items-center">
                         <ShareIcon/>
-                        <div className="font-normal text-lg">
+                        <div
+                            onClick={() => {
+                                navigator.clipboard.writeText(document.URL)
+                                alert("Url copied to clipboard")
+                            }}
+                            className="font-normal text-lg hover:font-bold w-12 cursor-pointer transition-all">
                             Share
                         </div>
                     </div>
