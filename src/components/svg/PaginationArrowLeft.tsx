@@ -5,7 +5,7 @@ const PaginationArrowLeft: FC<PaginationArrow> = ({currentPage}) => {
 
     return (
         <svg
-            className={`mr-auto hover:${currentPage === 1 ?'scale-100 cursor-default' :'scale-150 cursor-pointer'} transition-all`}
+            className={`mr-auto hover:${currentPage === 1 ?'scale-100 cursor-default' :'scale-125 cursor-pointer'} transition-all`}
             width="12" 
             height="18" 
             viewBox="0 0 12 18" 

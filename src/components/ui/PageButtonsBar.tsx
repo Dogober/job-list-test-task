@@ -21,7 +21,7 @@ const PageButtonsBar: FC<PageButtonsBarProps> = ({paginationRange, currentPage, 
                     return (
                         <button 
                             key={i} 
-                            className={classNames.unHover}
+                            className={`${classNames.unHover} cursor-default`}
                         >
                             &#8230;
                         </button>

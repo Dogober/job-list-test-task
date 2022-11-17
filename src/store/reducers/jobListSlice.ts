@@ -20,7 +20,7 @@ const initialState: JobState = {
     isLoading: false,
     error: '',
     currentPage: 1,
-    limit: 7
+    limit: 1
 }
 
 export const jobListSlice = createSlice({
