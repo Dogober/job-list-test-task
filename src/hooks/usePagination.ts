@@ -1,5 +1,3 @@
-//   Finally, we'll implement the core logic by keeping the above cases in mind.
-
 import { useMemo } from "react";
 import { IPagination } from "../models/IPagination";
 
@@ -10,9 +8,7 @@ import { IPagination } from "../models/IPagination";
       const totalPageCount = Math.ceil(totalCount / pageSize);
 
       const range = (start: number, end: number) => {
-
         let length = end - start + 1
-        
         return Array.from({ length }, (_, idx) => idx + start)
       }
 

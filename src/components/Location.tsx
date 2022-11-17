@@ -32,7 +32,8 @@ const Location: FC = () => {
             <img
                 className="rounded-b-lg"
                 alt="map" 
-                src={currentJob ?createMapUrl(currentJob) :''}/>
+                src={currentJob ?createMapUrl(currentJob) :''}
+            />
         </div>
     );
 };
