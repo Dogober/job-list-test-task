@@ -31,7 +31,8 @@ export const currentJobSlice = createSlice({
             element.title = element.title.slice(0, element.title.length-1)
             element.salary = element.salary.replace(/k/g, ' 000')
             for (let j = 0; j < element.pictures.length; j++) {
-                state.currentJob.pictures[j] = state.currentJob.pictures[j] + `?random=${randomizer(1000)}`
+                element.pictures[j] = element.pictures[j].replace('300', '116')
+                element.pictures[j] = element.pictures[j] + `?random=${randomizer(1000)}`
             }
             const responsopilitiesStr = 'Responsopilities:'
             const benefitsStr = 'Compensation & Benefits:'
