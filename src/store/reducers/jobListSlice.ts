@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import moment from "moment";
 import { Job } from "../../models/Job";
+import { convertingSomeData } from "../../utilities/convertingSomeData";
 import { randomizer } from "../../utilities/randomizer";
+import { slicingJobsArray } from "../../utilities/slicingJobsArray";
 
-interface JobState {
+export interface JobState {
     jobs: Job[]
     displayedJobs: Job[]
     isLoading: boolean
@@ -32,16 +33,10 @@ export const jobListSlice = createSlice({
             state.isLoading = false
             state.error = ''
             state.jobs = action.payload
-            state.displayedJobs = state.jobs.slice(
-                (state.currentPage-1)*state.limit, state.limit*state.currentPage > state.jobs.length 
-                    ?state.jobs.length
-                    :state.limit*state.currentPage
-                )
+            state.displayedJobs = slicingJobsArray(state)
             for (let i = 0; i < state.jobs.length; i++) {
                 const element = state.jobs[i]
-                element.updatedAt = moment(element.updatedAt, "YYYY-MM-DDThh:mm:ss").fromNow()
-                element.title = element.title.slice(0, element.title.length-1)
-                element.avatar = state.jobs[i].pictures[0] + `?random=${randomizer(1000)}`
+                convertingSomeData(element, 'picture')
                 element.rating = []
                 while (element.rating.length <= randomizer(5)-1) {
                     element.rating.push('')
@@ -54,11 +49,7 @@ export const jobListSlice = createSlice({
         },
         changingPage(state, action: PayloadAction<number>){
             state.currentPage = action.payload
-            state.displayedJobs = state.jobs.slice(
-                (state.currentPage-1)*state.limit, state.limit*state.currentPage > state.jobs.length 
-                    ?state.jobs.length
-                    :state.limit*state.currentPage
-            )
+            state.displayedJobs = slicingJobsArray(state)
         }
     }
 })

@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import moment from "moment";
 import { Job } from "../../models/Job";
-import { randomizer } from "../../utilities/randomizer";
+import { convertingSomeData } from "../../utilities/convertingSomeData";
 
 interface JobState {
     currentJob: Job | null
@@ -27,13 +26,7 @@ export const currentJobSlice = createSlice({
             state.error = ''
             state.currentJob = action.payload
             const element = state.currentJob
-            element.updatedAt = moment(element.updatedAt, "YYYY-MM-DDThh:mm:ss").fromNow()
-            element.title = element.title.slice(0, element.title.length-1)
-            element.salary = element.salary.replace(/k/g, ' 000')
-            for (let j = 0; j < element.pictures.length; j++) {
-                element.pictures[j] = element.pictures[j].replace('300', '116')
-                element.pictures[j] = element.pictures[j] + `?random=${randomizer(1000)}`
-            }
+            convertingSomeData(element, 'arrayOfPictures')
             const responsopilitiesStr = 'Responsopilities:'
             const benefitsStr = 'Compensation & Benefits:'
             const responsopilitiesIndex = element.description.indexOf(responsopilitiesStr)
