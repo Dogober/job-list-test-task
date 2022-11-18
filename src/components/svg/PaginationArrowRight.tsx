@@ -5,7 +5,15 @@ const PaginationArrowRight: FC<PaginationArrow> = ({currentPage, lastPage}) => {
 
     return (
         <svg
-            className={`ml-auto hover:${currentPage === lastPage ?'scale-100 cursor-default' :'scale-125 cursor-pointer'} transition-all`}
+            onMouseOver={(e) => {
+                e.currentTarget.style.transitionDuration='200ms'
+                    if (currentPage === lastPage) {
+                        return e.currentTarget.style.scale='1'
+                    }
+                        e.currentTarget.style.scale='1.25'
+                }
+            }
+            onMouseOut={(e) => e.currentTarget.style.scale='1'}            
             width="12" 
             height="18" 
             viewBox="0 0 12 18" 
