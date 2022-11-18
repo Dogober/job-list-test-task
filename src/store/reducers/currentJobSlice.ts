@@ -25,22 +25,7 @@ export const currentJobSlice = createSlice({
             state.isLoading = false
             state.error = ''
             state.currentJob = action.payload
-            const element = state.currentJob
-            convertingSomeData(element, 'arrayOfPictures')
-            const responsopilitiesStr = 'Responsopilities:'
-            const benefitsStr = 'Compensation & Benefits:'
-            const responsopilitiesIndex = element.description.indexOf(responsopilitiesStr)
-            const benefitsIndex = element.description.indexOf(benefitsStr)
-            const benefits = element.description
-                .substring(benefitsIndex+benefitsStr.length, element.description.length-1)
-            const title = element.description.substring(0, responsopilitiesIndex)
-            const responsopilities = element.description
-                .substring(responsopilitiesIndex+responsopilitiesStr.length, benefitsIndex)
-            element.convertedDescription = {
-                title,
-                responsopilities,
-                benefits: benefits.split('.')
-            }
+            convertingSomeData(state.currentJob, true)
         },
         currentJobFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false

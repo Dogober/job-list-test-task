@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Job } from "../../models/Job";
 import { convertingSomeData } from "../../utilities/convertingSomeData";
-import { randomizer } from "../../utilities/randomizer";
 import { slicingJobsArray } from "../../utilities/slicingJobsArray";
 
 export interface JobState {
@@ -35,12 +34,7 @@ export const jobListSlice = createSlice({
             state.jobs = action.payload
             state.displayedJobs = slicingJobsArray(state)
             for (let i = 0; i < state.jobs.length; i++) {
-                const element = state.jobs[i]
-                convertingSomeData(element, 'picture')
-                element.rating = []
-                while (element.rating.length <= randomizer(5)-1) {
-                    element.rating.push('')
-                }
+                convertingSomeData(state.jobs[i], false) 
             }
         },
         jobListFetchingError(state, action: PayloadAction<string>) {
