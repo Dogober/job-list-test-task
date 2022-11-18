@@ -19,7 +19,7 @@ const JobItem: FC<JobItemProps> = ({item}) => {
             className="select-none max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer"
         >
             <div
-                style={{backgroundImage: `url(${item.pictures[0]})`}}
+                style={{backgroundImage: `url(${item.avatar})`}}
                 className="min-w-[90px] max-h-[90px] rounded-full bg-cover">
             </div>
             <div className="flex flex-col gap-2 max-w-[712px] w-full mr-auto">

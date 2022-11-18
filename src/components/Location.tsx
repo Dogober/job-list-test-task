@@ -5,7 +5,7 @@ import GpsIcon from './svg/GpsIcon';
 
 const Location: FC = () => {
 
-    const {currentJob} = useAppSelector(state => state.jobListSlice)
+    const {currentJob} = useAppSelector(state => state.currentJobSlice)
     
     return (
         <div>

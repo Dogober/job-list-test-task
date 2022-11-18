@@ -4,6 +4,7 @@ import JobDetalis from '../pages/JobDetalis';
 import JobList from '../pages/JobList';
 
 const AppRouter: FC = () => {
+    
     return (
         <Routes>
             <Route path='/home' element={<JobList/>} />

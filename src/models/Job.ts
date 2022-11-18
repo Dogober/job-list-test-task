@@ -15,6 +15,7 @@ export interface Job {
     updatedAt: string
     rating: string[]
     convertedDescription: ConvertedDescription
+    avatar: string
   }
   
   export interface Location {

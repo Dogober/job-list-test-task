@@ -1,7 +1,5 @@
-import { FC, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { fetchCurrentJob } from '../store/reducers/ActionCreators';
+import { FC } from 'react';
+import { useAppSelector } from '../hooks/redux';
 import NoteIcon from './svg/NoteIcon';
 import ShareIcon from './svg/ShareIcon';
 import ReturnBtn from './ui/ReturnBtn';
@@ -12,15 +10,7 @@ import Location from './Location';
 
 const CurrentJobDetalis: FC = () => {
     
-    const params = useParams()
-    const {currentJob} = useAppSelector(state => state.jobListSlice)
-    const dispatch = useAppDispatch()
-
-    window.scrollTo(0, 0)
-
-    useEffect(() => {
-        dispatch(fetchCurrentJob(params.id))
-    }, [])
+    const {currentJob} = useAppSelector(state => state.currentJobSlice)
 
     return (
         <div className="flex max-w-[1265px] w-full justify-between gap-8">

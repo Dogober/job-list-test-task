@@ -1,21 +1,35 @@
 import { FC, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import CurrentJobDetalis from '../components/CurrentJobDetalis';
-import { useAppSelector } from '../hooks/redux';
+import Error from '../components/Error';
+import Loading from '../components/Loading';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { fetchCurrentJob } from '../store/reducers/ActionCreators';
 
 const JobDetalis: FC = () => {
 
-    const {jobs} = useAppSelector(state => state.jobListSlice)
-    const route = useNavigate()
-    
+    const {error, isLoading, currentJob} = useAppSelector(state => state.currentJobSlice)
+    const params = useParams()
+    const dispatch = useAppDispatch()
+
+    window.scrollTo(0, 0)
+
     useEffect(() => {
-        if (jobs.length === 0) route('/home')
+        if (currentJob === null) dispatch(fetchCurrentJob(params.id))
     }, [])
-  
+
     return (
-        <div className="py-14 flex justify-center pb-28 px-[5%]">
-            <CurrentJobDetalis/>
-        </div>
+        <>
+            {error
+            ?<Error/>
+            :<div className="py-14 flex justify-center pb-28 px-[5%]">
+              {isLoading
+                ?<Loading/>
+                :<CurrentJobDetalis/>
+              }
+            </div>
+          }
+        </>
     );
 };
 

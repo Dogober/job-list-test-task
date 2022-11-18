@@ -3,7 +3,7 @@ import { useAppSelector } from '../hooks/redux';
 
 const AttachedImages: FC = () => {
 
-    const {currentJob} = useAppSelector(state => state.jobListSlice)
+    const {currentJob} = useAppSelector(state => state.currentJobSlice)
 
     return (
         <>

@@ -4,7 +4,7 @@ import ApplyBtn from './ui/ApplyBtn';
 
 const Description: FC = () => {
 
-    const {currentJob} = useAppSelector(state => state.jobListSlice)
+    const {currentJob} = useAppSelector(state => state.currentJobSlice)
 
     return (
         <main className="font-normal text-lg">

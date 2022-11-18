@@ -8,7 +8,13 @@ import { changePage, fetchJobList } from '../store/reducers/ActionCreators';
 
 const JobList: FC = () => {
     const dispatch = useAppDispatch()
-    const {error, isLoading, jobs, displayedJobs, currentPage, limit} = useAppSelector(state => state.jobListSlice)
+    const {
+      error, 
+      isLoading, 
+      jobs, 
+      displayedJobs, 
+      currentPage, 
+      limit } = useAppSelector(state => state.jobListSlice)
   
     useEffect(() => {
       if (jobs.length === 0) dispatch(fetchJobList())
