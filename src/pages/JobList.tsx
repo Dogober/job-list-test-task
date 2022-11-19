@@ -25,7 +25,7 @@ const JobList: FC = () => {
     return (
         <>
         {error
-          ?<Error/>
+          ?<Error errorPlace="JobList"/>
           :<div className="flex flex-col items-center gap-2 px-[5%] py-5 bg-[#E6E9F2] min-h-screen">
             {isLoading
               ?<Loading/>

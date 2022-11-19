@@ -16,15 +16,15 @@ const JobItem: FC<JobItemProps> = ({item}) => {
     return (
         <div
             onClick={() => route(`/home/${item.id}`)}
-            className="max-[640px]:max-w-[400px] max-w-[1400px] w-full px-4 py-6 max-[640px]:bg-[#EFF0F5] bg-white rounded-lg font-sans box shadow max-[640px]:flex-col flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer text-[#aab0c7] relative"
+            className="max-[640px]:max-w-[400px] max-w-[1400px] w-full px-4 py-6 max-[640px]:bg-[#EFF0F5] bg-white rounded-lg font-sans shadow max-[640px]:flex-col flex gap-8 hover:bg-[#f7f7f8] duration-200 cursor-pointer text-[#aab0c7] relative"
         >
             <div className="flex w-full gap-7">
                 <img
                     src={item.avatar}
                     alt="avatar"
-                    className="w-[90px] h-[90px] rounded-full max-[640px]:mt-7">
+                    className="max-[640px]:w-[66px] w-[90px] max-[640px]:h-[66px] h-[90px] rounded-full max-[640px]:mt-7">
                 </img>
-                <div className="flex max-[640px]:flex-col w-full max-[640px]:gap-4 gap-8 max-[640px]:mt-6 max-[640px]:h-min">
+                <div className="flex max-[640px]:flex-col w-full max-[640px]:gap-4 gap-8 max-[640px]:mt-6">
                     <div className="flex flex-col gap-2 max-w-[712px] w-full mr-auto">
                         <header className="max-[640px]:text-lg text-xl max-[640px]:font-normal font-bold tracking-[-0.625px] text-[#67708b]">
                             {item.title}

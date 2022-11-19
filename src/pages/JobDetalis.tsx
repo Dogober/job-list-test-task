@@ -8,7 +8,7 @@ import { fetchCurrentJob } from '../store/reducers/ActionCreators';
 
 const JobDetalis: FC = () => {
 
-    const {error, isLoading } = useAppSelector(state => state.currentJobSlice)
+    const {errorDetails: error, isLoading } = useAppSelector(state => state.currentJobSlice)
     const params = useParams()
     const dispatch = useAppDispatch()
 
@@ -17,11 +17,11 @@ const JobDetalis: FC = () => {
     useEffect(() => {
         dispatch(fetchCurrentJob(params.id))
     }, [])
-
+    
     return (
         <>
             {error
-            ?<Error/>
+            ?<Error errorPlace="JobDetalis"/>
             :<div className="py-14 flex justify-center pb-28 px-[5%]">
               {isLoading
                 ?<Loading/>

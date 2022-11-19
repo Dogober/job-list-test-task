@@ -7,14 +7,14 @@ interface JobState {
     currentJob: Job | null
     detailsDisplayJob: DetailsDisplayJob | null
     isLoading: boolean
-    error: string
+    errorDetails: string
 }
 
 const initialState: JobState = {
     currentJob: null,
     detailsDisplayJob: null,
     isLoading: false,
-    error: ''
+    errorDetails: ''
 }
 
 export const currentJobSlice = createSlice({
@@ -23,17 +23,17 @@ export const currentJobSlice = createSlice({
     reducers: {
         currentJobFetching(state) {
             state.isLoading = true
-            state.error = ''
+            state.errorDetails = ''
         },
         currentJobFetchingSuccess(state, action: PayloadAction<Job>) {
             state.isLoading = false
-            state.error = ''
+            state.errorDetails = ''
             state.currentJob = action.payload
             state.detailsDisplayJob = convertJobToDetailsDisplayData(state.currentJob)
         },
         currentJobFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false
-            state.error = action.payload
+            state.errorDetails = action.payload
         }
     }
 })
