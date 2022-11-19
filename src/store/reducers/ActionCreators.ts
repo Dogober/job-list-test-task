@@ -9,10 +9,11 @@ const access_token = 'wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu'
 export const fetchJobList = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(jobListSlice.actions.jobListFetching())
-        const response = await axios.get<Job[]>('/job.json') 
-            // params: {
-            //     access_token,
-            // }
+        const response = await axios.get<Job[]>('https://api.json-generator.com/templates/ZM1r0eic3XEy/data', {
+            params: {
+                access_token
+            }
+        })
         setTimeout(() => {
             dispatch(jobListSlice.actions.jobListFetchingSuccess(response.data))
         }, 1000)
@@ -24,10 +25,11 @@ export const fetchJobList = () => async (dispatch: AppDispatch) => {
 export const fetchCurrentJob = (id: string | undefined) => async (dispatch: AppDispatch) => {
     try {
         dispatch(currentJobSlice.actions.currentJobFetching())
-        const response = await axios.get<Job[]>('/job.json') 
-            // params: {
-            //     access_token,
-            // }
+        const response = await axios.get<Job[]>('https://api.json-generator.com/templates/ZM1r0eic3XEy/data', {
+            params: {
+                access_token
+            }
+        })
         const currentJob = response.data.filter(job => job.id === id)[0]
         setTimeout(() => {
             dispatch(currentJobSlice.actions.currentJobFetchingSuccess(currentJob))
