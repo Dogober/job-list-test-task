@@ -12,14 +12,14 @@ const JobList: FC = () => {
       error, 
       isLoading, 
       jobs, 
-      displayedJobs, 
+      displayJobs, 
       currentPage, 
       limit } = useAppSelector(state => state.jobListSlice)
   
     useEffect(() => {
       if (jobs.length === 0) dispatch(fetchJobList())
       window.scrollTo(0, 0)
-    }, [currentPage])
+    }, [])
     
     return (
         <>
@@ -29,7 +29,7 @@ const JobList: FC = () => {
             {isLoading
               ?<Loading/>
               :<>
-                {displayedJobs.map(job =>
+                {displayJobs.map(job =>
                 <JobItem key={job.id} item={job}/>)
                 }
                 <Pagination

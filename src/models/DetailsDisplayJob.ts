@@ -1,7 +1,6 @@
-export interface Job {
+export interface DetailsDisplayJob {
     address: string
     benefits: string[]
-    createdAt: string
     description: string
     email: string
     employment_type: string[]
@@ -13,9 +12,16 @@ export interface Job {
     salary: string
     title: string
     updatedAt: string
+    convertedDescription: ConvertedDescription
   }
   
   export interface Location {
     lat: number
     long: number
+  }
+
+  export interface ConvertedDescription {
+    title: string
+    responsopilities?: string
+    benefits?: string[]
   }

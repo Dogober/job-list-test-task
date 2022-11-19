@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { DisplayJob } from "../../models/DisplayJob";
 import { Job } from "../../models/Job";
-import { convertingSomeData } from "../../utilities/convertingSomeData";
-import { slicingJobsArray } from "../../utilities/slicingJobsArray";
+import { getCurrentPage } from "../../utilities/getCurrentPage";
 
 export interface JobState {
     jobs: Job[]
-    displayedJobs: Job[]
+    displayJobs: DisplayJob[]
     isLoading: boolean
     error: string
     currentPage: number
@@ -14,7 +14,7 @@ export interface JobState {
 
 const initialState: JobState = {
     jobs: [],
-    displayedJobs: [],
+    displayJobs: [],
     isLoading: false,
     error: '',
     currentPage: 1,
@@ -27,15 +27,13 @@ export const jobListSlice = createSlice({
     reducers: {
         jobListFetching(state) {
             state.isLoading = true
+            state.error = ''
         },
         jobListFetchingSuccess(state, action: PayloadAction<Job[]>) {
             state.isLoading = false
             state.error = ''
             state.jobs = action.payload
-            state.displayedJobs = slicingJobsArray(state)
-            for (let i = 0; i < state.jobs.length; i++) {
-                convertingSomeData(state.jobs[i], false) 
-            }
+            state.displayJobs = getCurrentPage(state)
         },
         jobListFetchingError(state, action: PayloadAction<string>) {
             state.isLoading = false
@@ -43,7 +41,7 @@ export const jobListSlice = createSlice({
         },
         changingPage(state, action: PayloadAction<number>){
             state.currentPage = action.payload
-            state.displayedJobs = slicingJobsArray(state)
+            state.displayJobs = getCurrentPage(state)
         }
     }
 })

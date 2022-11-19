@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Job } from '../models/Job';
+import { DisplayJob } from '../models/DisplayJob';
 import GpsIcon from './svg/GpsIcon';
 import NoteIcon from './svg/NoteIcon';
 import StarIcon from './svg/StarIcon';
 
 interface JobItemProps {
-    item: Job
+    item: DisplayJob
 }
 
 const JobItem: FC<JobItemProps> = ({item}) => {
@@ -16,7 +16,7 @@ const JobItem: FC<JobItemProps> = ({item}) => {
     return (
         <div
             onClick={() => route(`/home/${item.id}`)}
-            className="select-none max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer"
+            className="select-none max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer text-[#aab0c7] "
         >
             <div
                 style={{backgroundImage: `url(${item.avatar})`}}
@@ -26,22 +26,22 @@ const JobItem: FC<JobItemProps> = ({item}) => {
                 <header className="text-xl font-bold tracking-[-0.625px] text-[#67708b]">
                     {item.title}
                 </header>
-                <p className="text-base font-normal tracking-[0.23619px] text-[#aab0c7]">
+                <p>
                     Department name • {item.name}
                 </p>
                 <div className="flex gap-2">
                     <GpsIcon/>
-                    <p className="text-base font-normal text-[#aab0c7]">{item.address}</p>
+                    <p>{item.address}</p>
                 </div>
             </div>
             <div className="mt-auto mb-auto flex">
-                {item.rating.map((_, i) => <StarIcon key={i}/>)}
+                {Array(item.rating).fill(null).map((_, i) => <StarIcon key={i}/>)}
             </div>
             <div className="flex flex-col max-w-[138px] w-full">
                 <div className=" flex-auto ml-auto">
                     <NoteIcon/>
                 </div>
-                <div className="text-[#aab0c7] font-normal">
+                <div>
                     Posted {item.updatedAt}
                 </div>
             </div>

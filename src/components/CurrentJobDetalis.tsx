@@ -10,7 +10,7 @@ import Location from './Location';
 
 const CurrentJobDetalis: FC = () => {
     
-    const {currentJob} = useAppSelector(state => state.currentJobSlice)
+    const {detailsDisplayJob} = useAppSelector(state => state.currentJobSlice)
 
     return (
         <div className="flex max-w-[1265px] w-full justify-between gap-8">
@@ -44,14 +44,14 @@ const CurrentJobDetalis: FC = () => {
                     <AdditionalBtn 
                         bgColor='bg-[#A1B1DB]/[.32]'
                         borderColor='border-[#55699E]/[.3]'
-                        infoAr={currentJob?.employment_type}
+                        infoAr={detailsDisplayJob?.employment_type}
                     />
                     <p className="font-normal text-lg mt-5 mb-1">Benefits</p>
                     <AdditionalBtn 
                         bgColor='bg-[#FFCF00]/[.15]'
                         borderColor='border-[#FFCF00]'
                         textColor='text-[#988B49]' 
-                        infoAr={currentJob?.benefits}
+                        infoAr={detailsDisplayJob?.benefits}
                     />
                     <AttachedImages/>
                     <ReturnBtn/>

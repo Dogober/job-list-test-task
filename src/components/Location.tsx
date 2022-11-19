@@ -5,7 +5,7 @@ import GpsIcon from './svg/GpsIcon';
 
 const Location: FC = () => {
 
-    const {currentJob} = useAppSelector(state => state.currentJobSlice)
+    const {detailsDisplayJob} = useAppSelector(state => state.currentJobSlice)
     
     return (
         <div>
@@ -17,22 +17,22 @@ const Location: FC = () => {
                         Department name.
                     </p>
                     <p>
-                        {currentJob?.name}.
+                        {detailsDisplayJob?.name}.
                     </p>
                 </div>
                 <div className="flex gap-2">
                     <GpsIcon/>
-                    <p className="text-lg font-normal text-[#E8EBF3]">{currentJob?.address}</p>
+                    <p className="text-lg font-normal text-[#E8EBF3]">{detailsDisplayJob?.address}</p>
                 </div>
                 <p>
-                    {currentJob?.phone}, {currentJob?.email}
+                    {detailsDisplayJob?.phone}, {detailsDisplayJob?.email}
                 </p>
                 
             </div>
             <img
                 className="rounded-b-lg"
                 alt="map" 
-                src={currentJob ?createMapUrl(currentJob) :''}
+                src={detailsDisplayJob ?createMapUrl(detailsDisplayJob) :''}
             />
         </div>
     );

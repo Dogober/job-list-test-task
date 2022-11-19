@@ -8,14 +8,14 @@ import { fetchCurrentJob } from '../store/reducers/ActionCreators';
 
 const JobDetalis: FC = () => {
 
-    const {error, isLoading, currentJob} = useAppSelector(state => state.currentJobSlice)
+    const {error, isLoading } = useAppSelector(state => state.currentJobSlice)
     const params = useParams()
     const dispatch = useAppDispatch()
 
     window.scrollTo(0, 0)
 
     useEffect(() => {
-        if (currentJob === null) dispatch(fetchCurrentJob(params.id))
+        dispatch(fetchCurrentJob(params.id))
     }, [])
 
     return (

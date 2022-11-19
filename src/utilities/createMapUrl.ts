@@ -1,6 +1,6 @@
-import { Job } from "../models/Job"
+import { DetailsDisplayJob } from "../models/DetailsDisplayJob"
 
-export const createMapUrl = (job: Job): string => {
+export const createMapUrl = (job: DetailsDisplayJob): string => {
     const mapUrl = new URL("https://maps.geoapify.com/v1/staticmap")
     mapUrl.searchParams.append("style", "osm-carto")
     mapUrl.searchParams.append("width", "422")
