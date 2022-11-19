@@ -1,8 +1,8 @@
 import { randomizer } from "./randomizer"
 
 export const convertPictures = (picture: string, width: string, heigh: string): string => {
-    let converPicture = ''
-    converPicture = picture.replace('200', width)
-    converPicture = converPicture.replace('300', heigh) + `?random=${randomizer(1000)}`
-    return converPicture
+    const pictureUrl = new URL(picture)
+    pictureUrl.pathname = '/' + width + '/' + heigh
+    pictureUrl.searchParams.append('id', `${randomizer(1000)}`)
+    return pictureUrl.toString()
 }
