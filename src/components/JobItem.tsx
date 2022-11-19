@@ -18,10 +18,11 @@ const JobItem: FC<JobItemProps> = ({item}) => {
             onClick={() => route(`/home/${item.id}`)}
             className="select-none max-w-[1400px] w-full min-h-[164px] px-4 py-6 bg-white rounded-lg font-sans box shadow flex gap-8 hover:bg-[#f7f7f8] transition-all duration-200 cursor-pointer text-[#aab0c7] "
         >
-            <div
-                style={{backgroundImage: `url(${item.avatar})`}}
-                className="min-w-[90px] max-h-[90px] rounded-full bg-cover">
-            </div>
+            <img
+                src={item.avatar}
+                alt="avatar"
+                className="w-[90px] h-[90px] rounded-full">
+            </img>
             <div className="flex flex-col gap-2 max-w-[712px] w-full mr-auto">
                 <header className="text-xl font-bold tracking-[-0.625px] text-[#67708b]">
                     {item.title}

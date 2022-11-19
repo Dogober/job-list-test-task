@@ -28,7 +28,7 @@ export const convertJobToDetailsDisplayData = (job: Job): DetailsDisplayJob => {
     }
 
     for (let i = 0; i < detailsDisplayJob.pictures.length; i++) {
-        detailsDisplayJob.pictures[i] = convertPictures(detailsDisplayJob!.pictures[i])
+        detailsDisplayJob.pictures[i] = convertPictures(detailsDisplayJob!.pictures[i], '200', '116')
     }
     const responsopilitiesStr = 'Responsopilities:'
     const benefitsStr = 'Compensation & Benefits:'

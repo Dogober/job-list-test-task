@@ -15,10 +15,11 @@ const JobList: FC = () => {
       displayJobs, 
       currentPage, 
       limit } = useAppSelector(state => state.jobListSlice)
+
+    window.scrollTo(0, 0)
   
     useEffect(() => {
       if (jobs.length === 0) dispatch(fetchJobList())
-      window.scrollTo(0, 0)
     }, [])
     
     return (

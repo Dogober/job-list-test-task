@@ -17,7 +17,7 @@ export const getCurrentPage = (state: JobState): DisplayJob[] => {
             title: convertTitle(job.title),
             updatedAt: convertupdateAt(job.updatedAt),
             rating: randomizer(5),
-            avatar: convertPictures(job.pictures[0])
+            avatar: convertPictures(job.pictures[0], '90', '90')
         })
     }
     
