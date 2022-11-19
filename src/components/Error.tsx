@@ -18,7 +18,7 @@ const Error: FC<ErrorProps> = ({errorPlace}) => {
         )
     } else {
         return (
-            <div className="bg-[#F5F5F5] flex w-full h-screen items-center justify-center text-[#3A4562] font-bold text-4xl px-8 py-8">
+            <div className=" bg-white flex w-full h-screen items-center justify-center text-[#3A4562] font-bold text-4xl px-8 py-8">
                 {errorDetails}
             </div>
         )

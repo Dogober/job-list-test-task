@@ -28,6 +28,10 @@ export const currentJobSlice = createSlice({
         currentJobFetchingSuccess(state, action: PayloadAction<Job>) {
             state.isLoading = false
             state.errorDetails = ''
+            if (!action.payload) {
+                state.errorDetails = 'Page not found: Invalid URL :('
+                return
+            }
             state.currentJob = action.payload
             state.detailsDisplayJob = convertJobToDetailsDisplayData(state.currentJob)
         },

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CurrentJobDetalis from '../components/CurrentJobDetalis';
 import Error from '../components/Error';
 import Loading from '../components/Loading';
@@ -8,7 +8,7 @@ import { fetchCurrentJob } from '../store/reducers/ActionCreators';
 
 const JobDetalis: FC = () => {
 
-    const {errorDetails: error, isLoading } = useAppSelector(state => state.currentJobSlice)
+    const {errorDetails, isLoading} = useAppSelector(state => state.currentJobSlice)
     const params = useParams()
     const dispatch = useAppDispatch()
 
@@ -20,7 +20,7 @@ const JobDetalis: FC = () => {
     
     return (
         <>
-            {error
+            {errorDetails
             ?<Error errorPlace="JobDetalis"/>
             :<div className="py-14 flex justify-center pb-28 px-[5%]">
               {isLoading
