@@ -42,6 +42,10 @@ export const jobListSlice = createSlice({
         changingPage(state, action: PayloadAction<number>){
             state.currentPage = action.payload
             state.displayJobs = getCurrentPage(state)
+        },
+        changingLimit(state, action: PayloadAction<number>){
+            state.limit = action.payload
+            // state.displayJobs = getCurrentPage(state)
         }
     }
 })

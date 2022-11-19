@@ -40,3 +40,6 @@ export const fetchCurrentJob = (id: string | undefined) => async (dispatch: AppD
 export const changePage = (page: number) => (dispatch: AppDispatch) => {
     dispatch(jobListSlice.actions.changingPage(page))
 }
+export const changeLimit = (limit: number) => (dispatch: AppDispatch) => {
+    dispatch(jobListSlice.actions.changingLimit(limit))
+}

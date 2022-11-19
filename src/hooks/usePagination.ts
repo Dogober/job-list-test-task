@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import { IPagination } from "../models/IPagination";
+import { IPaginationHook } from "../models/IPaginationHook";
 
   export const DOTS = '...'
-  export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }: IPagination) => {
+  export const usePagination = ({ totalCount, pageSize, siblingCount = 1, currentPage }: IPaginationHook) => {
     const paginationRange = useMemo(() => {
 
       const totalPageCount = Math.ceil(totalCount / pageSize);

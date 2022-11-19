@@ -6,8 +6,8 @@ import PaginationArrowRight from '../svg/PaginationArrowRight';
 import PageButtonsBar from './PageButtonsBar';
 
 const Pagination: FC<IPagination> = ({onPageChange, totalCount, siblingCount = 1, currentPage, pageSize}) => {
-
-    const paginationRange = usePagination({currentPage, totalCount, siblingCount, pageSize, onPageChange})
+    
+    const paginationRange = usePagination({currentPage, totalCount, siblingCount, pageSize})
 
     if (currentPage === 0 || paginationRange?.length! < 2) {
         return null;
