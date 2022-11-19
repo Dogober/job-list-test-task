@@ -1,5 +1,4 @@
 import { DisplayJob } from "../models/DisplayJob";
-import { Job } from "../models/Job";
 import { JobState } from "../store/reducers/jobListSlice";
 import { convertPictures } from "./convertPictures";
 import { convertTitle } from "./convertTitle";
