@@ -1,8 +1,8 @@
 import { DetailsDisplayJob } from "../models/DetailsDisplayJob";
 import { Job } from "../models/Job";
-import { convertPictures } from "./convertPictures";
-import { convertTitle } from "./convertTitle";
-import { convertupdateAt } from "./convertupdateAt";
+import convertUtilities from "./convertUtilities";
+
+const {convertPictures, convertTitle, convertupdateAt} = convertUtilities
 
 export const convertJobToDetailsDisplayData = (job: Job): DetailsDisplayJob => {
     

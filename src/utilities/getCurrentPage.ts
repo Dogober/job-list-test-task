@@ -1,9 +1,9 @@
 import { DisplayJob } from "../models/DisplayJob";
 import { JobState } from "../store/reducers/jobListSlice";
-import { convertPictures } from "./convertPictures";
-import { convertTitle } from "./convertTitle";
-import { convertupdateAt } from "./convertupdateAt";
+import convertUtilities from "./convertUtilities";
 import { randomizer } from "./randomizer";
+
+const {convertPictures, convertTitle, convertupdateAt} = convertUtilities
 
 export const getCurrentPage = (state: JobState): DisplayJob[] => {
     state.displayJobs = []

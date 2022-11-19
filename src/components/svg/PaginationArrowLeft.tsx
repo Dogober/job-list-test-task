@@ -1,7 +1,11 @@
 import { FC } from 'react';
-import { PaginationArrow } from '../../models/PaginationArrow';
 
-const PaginationArrowLeft: FC<PaginationArrow> = ({currentPage}) => {
+interface PaginationArrowProps {
+    currentPage: number
+    lastPage?: number | string
+}
+
+const PaginationArrowLeft: FC<PaginationArrowProps> = ({currentPage}) => {
 
     return (
         <svg
