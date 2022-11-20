@@ -8,10 +8,10 @@ const Location: FC = () => {
     const {detailsDisplayJob} = useAppSelector(state => state.currentJobSlice)
     
     return (
-        <div>
+        <div className="flex items-center flex-col h-[436px]">
             <div
                 style={{backgroundImage: 'url(/Circle.svg)'}}
-                className=" bg-no-repeat bg-[#2A3047] text-[#E7EAF0] max-w-[422px] w-full max-h-[218px] h-full ml-auto rounded-t-lg pt-8 px-16 flex flex-col gap-2">
+                className=" bg-no-repeat bg-[#2A3047] text-[#E7EAF0] max-[640px]:max-w-[372px] max-w-[402px] w-full max-h-[218px] h-full rounded-t-lg pt-8 px-16 flex flex-col gap-2">
                 <div className="font-bold text-xl mb-2">
                     <p>
                         Department name.
@@ -30,9 +30,14 @@ const Location: FC = () => {
                 
             </div>
             <img
-                className="rounded-b-lg"
+                className="rounded-b-lg max-[640px]:hidden max-w-[402px] w-full"
                 alt="map" 
-                src={detailsDisplayJob ?createMapUrl(detailsDisplayJob) :''}
+                src={detailsDisplayJob ?createMapUrl(detailsDisplayJob, "402") :''}
+            />
+            <img
+                className="rounded-b-lg min-[640px]:hidden max-w-[372px] w-full"
+                alt="map" 
+                src={detailsDisplayJob ?createMapUrl(detailsDisplayJob, "372") :''}
             />
         </div>
     );

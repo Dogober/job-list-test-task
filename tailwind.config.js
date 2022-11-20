@@ -12,6 +12,12 @@ module.exports = {
       roman: 'upper-roman',
     },
     extend: {
+      gridTemplateColumns: {
+        '2': '1fr minmax(0, auto)',
+      },
+      gridTemplateRows: {
+        '2': '35px 35px 35px 35px',
+      },
       scale: {
         '110': '1.10',
       },
