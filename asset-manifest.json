@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/job-list-test-task/static/css/main.06e95a5d.css",
-    "main.js": "/job-list-test-task/static/js/main.68db4ba2.js",
+    "main.js": "/job-list-test-task/static/js/main.967fb58b.js",
     "index.html": "/job-list-test-task/index.html",
     "main.06e95a5d.css.map": "/job-list-test-task/static/css/main.06e95a5d.css.map",
-    "main.68db4ba2.js.map": "/job-list-test-task/static/js/main.68db4ba2.js.map"
+    "main.967fb58b.js.map": "/job-list-test-task/static/js/main.967fb58b.js.map"
   },
   "entrypoints": [
     "static/css/main.06e95a5d.css",
-    "static/js/main.68db4ba2.js"
+    "static/js/main.967fb58b.js"
   ]
 }
