@@ -14,7 +14,7 @@ const CurrentJobDetalis: FC = () => {
     const {detailsDisplayJob} = useAppSelector(state => state.currentJobSlice)
 
     return (
-        <div className="flex max-[640px]:flex-col max-[640px]:min-w-[414px] max-w-[1265px] w-full justify-between gap-6">
+        <div className="flex max-[640px]:flex-col max-[640px]:max-w-[414px] max-w-[1265px] w-full justify-between gap-6">
             <div className="flex max-[640px]:flex-col gap-8">
                 <div className="flex flex-col max-w-[725px] text-[#3A4562] font-sans max-[640px]:gap-8">
                     <header className="max-[640px]:flex-col flex max-[640px]:gap-6 gap-8 max-[640px]:border-b-0 border-b pb-2">

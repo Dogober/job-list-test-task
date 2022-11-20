@@ -10,8 +10,8 @@ interface PageButtonsBarProps {
 const PageButtonsBar: FC<PageButtonsBarProps> = ({paginationRange, currentPage, onPageChange}) => {
 
     const classNames = {
-        hover: "text-[#5876C5] text-xl font-bold w-[31px] border-b-2 border-[#5876C5] h-full pt-0.5",
-        unHover: "text-[#67708b] text-xl font-bold w-[31px]"
+        hover: "text-[#5876C5] max-[640px]:text-base text-xl font-bold w-[31px] border-b-2 border-[#5876C5] h-full pt-0.5",
+        unHover: "text-[#67708b] max-[640px]:text-base text-xl font-bold w-[31px]"
     }
 
     return (

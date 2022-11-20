@@ -23,7 +23,7 @@ const Pagination: FC<IPagination> = ({onPageChange, totalCount, siblingCount = 1
     const lastPage = paginationRange![paginationRange?.length! - 1];
 
     return (
-        <div className="w-[515px] h-[52px] bg-white rounded-[10.4px] my-12 px-[23px] flex items-center justify-center gap-2">
+        <div className="max-[640px]:max-w-[400px] w-[515px] h-[52px] shadow bg-white rounded-[10.4px] my-12 px-[23px] flex items-center justify-center gap-2">
             <button
                 disabled={currentPage === 1}
                 onClick={onPrevious}

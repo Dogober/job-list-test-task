@@ -55,7 +55,7 @@ const Description: FC = () => {
                 <ul>
                     {detailsDisplayJob?.convertedDescription?.benefits!.map((benefit, i) =>
                         <li
-                            className=" list-square list-outside last:list-none"
+                            className=" list-square list-outside last:list-none max-[640px]:ml-5"
                             key={i}
                         >
                             {benefit}
