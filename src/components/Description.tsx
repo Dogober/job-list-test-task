@@ -11,17 +11,17 @@ const Description: FC = () => {
             <div className="max-[640px]:hidden">
                 <ApplyBtn/>
             </div>
-            <header className="grid max-[640px]:grid-cols-2 grid-cols-2 max-[640px]:grid-rows-1 grid-rows-2 font-bold gap-x-14 max-[640px]">
-                <div className="text-2xl tracking-[-0.75] row-start-1 row-end-4 max-[640px]:col-start-1 max-[640px]:col-end-3">
+            <header className="grid max-[1200px]:grid-cols-2 grid-cols-2 max-[1200px]:grid-rows-1 grid-rows-2 font-bold gap-x-14 max-[1200px]">
+                <div className="text-2xl tracking-[-0.75] row-start-1 row-end-4 max-[1200px]:col-start-1 max-[1200px]:col-end-3">
                     {detailsDisplayJob?.title}
                 </div>
-                <div className="text-xl tracking-[-0.63] justify-self-end max-[640px]:col-start-2 max-[640px]:row-end-6">
+                <div className="text-xl tracking-[-0.63] justify-self-end max-[1200px]:col-start-2 max-[1200px]:row-end-6">
                     € {detailsDisplayJob?.salary}
                 </div>
-                <div className="font-normal text-lg tracking-[-0.56] text max-[640px]:justify-self-end max-[640px]:self-end">
+                <div className="font-normal text-lg tracking-[-0.56] text max-[1200px]:justify-self-end max-[1200px]:self-end">
                     Brutto, per year
                 </div>
-                <div className="self-center font-normal text-lg text-[#38415D]/[.36] my-1 max-[640px]:font-light max-[640px]:text-[13px] row-start-4 row-end-5 max-[640px]:col-start-1 max-[640px]:row-end-6">
+                <div className="self-center font-normal text-lg text-[#38415D]/[.36] my-1 max-[1200px]:font-light max-[1200px]:text-[13px] row-start-4 row-end-5 max-[1200px]:col-start-1 max-[1200px]:row-end-6">
                     Posted {detailsDisplayJob?.updatedAt}
                 </div>
             </header>
