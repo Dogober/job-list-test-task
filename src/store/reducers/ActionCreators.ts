@@ -5,11 +5,12 @@ import { Job } from "../../models/Job";
 import { currentJobSlice } from "./currentJobSlice";
 
 const access_token = 'wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu'
+const url = 'https://api.json-generator.com/templates/ZM1r0eic3XEy/data'
 
 export const fetchJobList = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(jobListSlice.actions.jobListFetching())
-        const response = await axios.get<Job[]>('https://api.json-generator.com/templates/ZM1r0eic3XEy/data', {
+        const response = await axios.get<Job[]>(url, {
             params: {
                 access_token
             }
@@ -25,7 +26,7 @@ export const fetchJobList = () => async (dispatch: AppDispatch) => {
 export const fetchCurrentJob = (id: string | undefined) => async (dispatch: AppDispatch) => {
     try {
         dispatch(currentJobSlice.actions.currentJobFetching())
-        const response = await axios.get<Job[]>('https://api.json-generator.com/templates/ZM1r0eic3XEy/data', {
+        const response = await axios.get<Job[]>(url, {
             params: {
                 access_token
             }
