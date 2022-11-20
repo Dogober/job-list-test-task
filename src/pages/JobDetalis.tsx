@@ -22,7 +22,7 @@ const JobDetalis: FC = () => {
         <>
             {errorDetails
             ?<Error errorPlace="JobDetalis"/>
-            :<div className="py-14 flex justify-center pb-28 px-[5%] max-[640px]:px-4">
+            :<div className="flex justify-center max-[640px]:pt-6 pt-14 max-[640px]:pb-9 pb-28 px-[5%] max-[640px]:px-4">
               {isLoading
                 ?<Loading/>
                 :<CurrentJobDetalis/>
