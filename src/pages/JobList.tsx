@@ -19,7 +19,7 @@ const JobList: FC = () => {
     window.scrollTo(0, 0)
   
     useEffect(() => {
-      dispatch(fetchJobList())
+      if (jobs.length === 0) dispatch(fetchJobList())
     }, [])
     
     return (
